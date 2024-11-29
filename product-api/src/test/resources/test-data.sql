@@ -1,28 +1,25 @@
-DROP TABLE IF EXISTS PRICES;
 DROP TABLE IF EXISTS BRAND;
 
-
 CREATE TABLE IF NOT EXISTS BRAND (
-    brand_id INT PRIMARY KEY    -- Puedes agregar otros campos que necesites, como el nombre de la marca
+    brand_id INT PRIMARY KEY ,
+    brand_name VARCHAR(4)
 );
 
-INSERT INTO BRAND (brand_id)
-VALUES (1);
+INSERT INTO BRAND (brand_id, brand_name)
+VALUES (1, 'ZARA');
+
+DROP TABLE IF EXISTS PRICES;
 
 CREATE TABLE IF NOT EXISTS PRICES (
-    -- Definir la clave primaria compuesta (ID embebido)
-    product_id INT NOT NULL,          -- Suponiendo que `PriceEntityId` tiene un campo `productId`
-    brand_id INT NOT NULL,            -- Suponiendo que `PriceEntityId` tiene un campo `brandId`
+    product_id INT NOT NULL,
+    brand_id INT NOT NULL,
     price_list INT NOT NULL,
-    -- Fechas de inicio y fin del rango de precios
-    start_date TIMESTAMP NOT NULL,    -- Fecha de inicio
-    end_date TIMESTAMP NOT NULL,      -- Fecha de fin
-    -- Otros campos
-    priority INT NOT NULL,            -- Prioridad
-    price FLOAT NOT NULL,             -- Precio final de venta
-    curr VARCHAR(3) NOT NULL,         -- Moneda (ISO 4217 de 3 caracteres)
+    start_date TIMESTAMP NOT NULL,
+    end_date TIMESTAMP NOT NULL,
+    priority INT NOT NULL,
+    price FLOAT NOT NULL,
+    curr VARCHAR(3) NOT NULL,
 
-    -- Definir la clave primaria compuesta
     PRIMARY KEY (product_id, brand_id, price_list)
 );
 

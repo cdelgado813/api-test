@@ -1,4 +1,4 @@
-package com.test.priceapi.application.ports;
+package com.test.priceapi.application.port;
 
 import com.test.priceapi.application.dto.PriceDto;
 

@@ -2,8 +2,8 @@ package com.test.priceapi.infraestructure.persistence.service;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import com.test.priceapi.infraestructure.persistence.entity.BrandEntity;
 import org.springframework.stereotype.Service;
@@ -27,15 +27,9 @@ public class PricePersistenceService {
      * @param brandId        El identificador de la marca.
      * @return Una lista de precios activos o una lista vacía si ocurre un error.
      */
-    public List<PriceEntity> findActivePrices(LocalDateTime priceStartDate, Integer productId, Integer brandId) {
-
-        try {
-            return priceJpaRepository.findActivePrices(
-                    Timestamp.valueOf(priceStartDate), productId, new BrandEntity(brandId));
-        } catch (Exception e) {
-
-            return Collections.emptyList();
-        }
+    public Optional<List<PriceEntity>> findActivePrices(LocalDateTime priceStartDate, Integer productId, Integer brandId) {
+        return priceJpaRepository.findActivePrices(
+                Timestamp.valueOf(priceStartDate), productId, new BrandEntity(brandId));
 
     }
 

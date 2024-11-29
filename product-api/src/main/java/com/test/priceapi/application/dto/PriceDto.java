@@ -53,7 +53,7 @@ public class PriceDto {
 
     public Price toModel() {
 
-        return Price.builder()
+        return new Price.Builder()
                 .productId(productId)
                 .brandId(brandId)
                 .activePrice(price)

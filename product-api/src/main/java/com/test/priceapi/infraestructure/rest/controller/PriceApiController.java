@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.test.priceapi.application.ports.PriceService;
+import com.test.priceapi.application.port.PriceService;
 import com.test.priceapi.application.dto.PriceDto;
 
 import com.test.priceapi.infraestructure.rest.api.PriceApi;

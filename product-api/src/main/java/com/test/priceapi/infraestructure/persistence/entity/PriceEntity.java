@@ -46,7 +46,7 @@ public class PriceEntity {
 
     public Price toModel() {
 
-        return Price.builder()
+        return new Price.Builder()
                 .productId(priceEntityId.getProductId())
                 .brandId(priceEntityId.getBrandEntity().getBrandId())
                 .priceList(priceEntityId.getPriceListId())
