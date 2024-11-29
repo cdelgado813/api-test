@@ -31,13 +31,8 @@ jobs:
         java-version: '22'
         distribution: 'temurin'
 
-    - name: Cache Maven dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.m2
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven
+    - name: compile the project
+      run: mvn compile
 
-    - name: Install dependencies and run tests
-      run: mvn clean test  
+    - name: run test case
+      run: mvn test
