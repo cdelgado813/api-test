@@ -32,7 +32,7 @@ jobs:
         distribution: 'temurin'
 
     - name: compile the project
-      run: ls | pwd
+      run: ls -la
 
     - name: run test case
       run: cd ../product-api/ | mvn test
