@@ -32,10 +32,10 @@ jobs:
           distribution: 'temurin'
 
       - name: compile the project
-        run: cd /price-api/price-api
+        run: cd /price-api
 
       - name: compile the project
-        run: ls
+        run: ls -la
 
       - name: run test case
         run: mvn clean test
