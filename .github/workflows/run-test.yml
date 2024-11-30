@@ -35,6 +35,9 @@ jobs:
         run: cd price-api
 
       - name: compile the project
+        run: cd price-api
+        
+      - name: compile the project
         run: ls -la
 
       - name: run test case
