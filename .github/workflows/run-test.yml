@@ -32,7 +32,7 @@ jobs:
           distribution: 'temurin'
 
       - name: compile the project
-        run: cd /price-api
+        run: cd price-api
 
       - name: compile the project
         run: ls -la
