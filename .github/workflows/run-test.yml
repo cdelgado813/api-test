@@ -24,21 +24,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Set up JDK 22
         uses: actions/setup-java@v3
         with:
           java-version: '22'
           distribution: 'temurin'
-
-      - name: compile the project
-        run: cd price-api
-
-      - name: compile the project
-        run: cd price-api
-
-      - name: compile the project
-        run: ls -la
-
       - name: run test case
         run: cd price-api | mvn clean test
