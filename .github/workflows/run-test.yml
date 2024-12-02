@@ -1,0 +1,36 @@
+name: Test
+
+on:
+
+  #When it should the action take place
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    #The definition of the steps that the action will take
+    steps:
+      #First checkout the branch that is referenced
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      #Setting the sdk
+      - name: Set up JDK 22
+        uses: actions/setup-java@v4
+        with:
+          java-version: '22'
+          distribution: 'temurin'
+          cache: maven
+      #Running the mvn test command in the correct folder
+      - name: Check test
+        run: | 
+          cd price-api 
+          mvn test
+
