@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.test</groupId>
     <artifactId>price-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>price-api</name>
     <description>Demo project for an api</description>
     <url/>
