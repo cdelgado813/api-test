@@ -6,9 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.test.priceapi.application.port.PriceService;
 import com.test.priceapi.domain.model.Price;
-import com.test.priceapi.domain.port.out.PriceRepository;
 import com.test.priceapi.domain.service.PriceDomainService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
