@@ -12,4 +12,6 @@ public class Constants {
 
     public static final String TEST_5 = "Test 5: petición a las 21:00 del día 16 del producto 35455 para la brand 1 (ZARA)";
 
+    public static final String TEST_6 = "Test 6: Test unitario para validar el servicio de dominio que debe obtener el precio más prioritario de una lista";
+
 }
