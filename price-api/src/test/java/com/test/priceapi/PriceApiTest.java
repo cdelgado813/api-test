@@ -1,10 +1,13 @@
 package com.test.priceapi;
 
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.test.priceapi.domain.model.Price;
+import com.test.priceapi.domain.service.PriceDomainService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -16,6 +19,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.test.priceapi.application.dto.PriceDto;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 import org.springframework.test.web.servlet.MockMvc;
@@ -60,6 +65,28 @@ class PriceApiTest {
     @DisplayName(Constants.TEST_5)
     void test5() throws Exception {
         assertPriceAt("2020-06-15 21:00:00", 38.95F);
+    }
+
+    @Test
+    @DisplayName(Constants.TEST_6)
+    void test6() {
+
+        List<Price> prices = List.of(
+                new Price.Builder().activePrice(500F).priority(4).build(),
+                new Price.Builder().activePrice(400F).priority(3).build(),
+                new Price.Builder().activePrice(300F).priority(10).build(), //The highest priority should be the one
+                new Price.Builder().activePrice(200F).priority(2).build(),
+                new Price.Builder().activePrice(100F).priority(1).build()
+        );
+
+        PriceDomainService priceDomainService = new PriceDomainService(null);
+
+        Price highestPriorityPrice = priceDomainService.getTheActivePrice(prices);
+
+        assertNotNull(highestPriorityPrice);
+        assertEquals(10, highestPriorityPrice.getPriority());
+        assertEquals(300F, highestPriorityPrice.getActivePrice());
+
     }
 
     private void assertPriceAt(String dateString, float expectedPrice) throws Exception {
