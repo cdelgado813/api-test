@@ -89,7 +89,9 @@ Se pueden lanzar los test mediante el comando:
    mvn clean test
    ```
 También se pueden lanzar los test mediante una GitHub action que hay configurada bajo el nombre run-test. 
-Dicha GHAction se ejecuta automáticamente en los merge request a la rama main
+Dicha GHAction se ejecuta automáticamente en los merge request a la rama main, pero también se puede ejecutar a mano 
+desde la pantalla de GitHub Actions > Test > Run Workflow > Run Workflow (main). Al actualizar la página se mostrará el 
+action funcionando
 
 
 ---
