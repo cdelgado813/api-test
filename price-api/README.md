@@ -68,7 +68,7 @@ de ahí que tengamos un servicio en la capa de dominio que ordena una lista de P
 
 2. Navegar al directorio del proyecto y compilar con:
    ```bash
-   cd mvn clean install
+   mvn clean install
    ```
 3. Ejecutar la aplicación:
    ```bash
