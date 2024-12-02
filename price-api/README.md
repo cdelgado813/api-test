@@ -93,6 +93,10 @@ Dicha GHAction se ejecuta automáticamente en los merge request a la rama main, 
 desde la pantalla de GitHub Actions > Test > Run Workflow > Run Workflow (main). Al actualizar la página se mostrará el 
 action funcionando
 
+Existen 5 test de integración donde se verifica el correcto comportamiento del servicio obteniendo el precio en 5 momentos distintos
+y un test unitario que comprueba la funcionalidad de la lógica de negocio que ordena los precios de una lista para obtener el más prioritario
+
+La descripción de estos test se puede encontrar en la clase constants del modulo de test **./src/test/java/com/test/priceapi/Constants.java**
 
 ---
 
