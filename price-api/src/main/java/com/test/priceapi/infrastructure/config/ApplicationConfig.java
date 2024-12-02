@@ -1,4 +1,4 @@
-package com.test.priceapi.infraestructure.config;
+package com.test.priceapi.infrastructure.config;
 
 import com.test.priceapi.domain.port.out.PriceRepository;
 import com.test.priceapi.domain.service.PriceDomainService;

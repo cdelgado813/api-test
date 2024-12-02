@@ -1,7 +1,7 @@
-package com.test.priceapi.infraestructure.rest.exception;
+package com.test.priceapi.infrastructure.rest.exception;
 
 import com.test.priceapi.domain.exception.PriceNotFoundException;
-import com.test.priceapi.infraestructure.exception.InfrastructureException;
+import com.test.priceapi.infrastructure.exception.InfrastructureException;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;

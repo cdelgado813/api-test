@@ -1,4 +1,4 @@
-package com.test.priceapi.infraestructure.rest.exception;
+package com.test.priceapi.infrastructure.rest.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

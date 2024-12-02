@@ -1,15 +1,15 @@
-package com.test.priceapi.infraestructure.persistence.repository;
+package com.test.priceapi.infrastructure.persistence.repository;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.test.priceapi.infraestructure.persistence.entity.BrandEntity;
+import com.test.priceapi.infrastructure.persistence.entity.BrandEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.test.priceapi.infraestructure.persistence.entity.PriceEntity;
-import com.test.priceapi.infraestructure.persistence.entity.PriceEntityId;
+import com.test.priceapi.infrastructure.persistence.entity.PriceEntity;
+import com.test.priceapi.infrastructure.persistence.entity.PriceEntityId;
 
 public interface PriceJpaRepository extends JpaRepository<PriceEntity, PriceEntityId> {
 

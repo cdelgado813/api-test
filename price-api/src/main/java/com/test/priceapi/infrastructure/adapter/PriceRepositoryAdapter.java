@@ -1,15 +1,15 @@
-package com.test.priceapi.infraestructure.adapter;
+package com.test.priceapi.infrastructure.adapter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import com.test.priceapi.infraestructure.persistence.entity.PriceEntity;
+import com.test.priceapi.infrastructure.persistence.entity.PriceEntity;
 import org.springframework.stereotype.Repository;
 
 import com.test.priceapi.domain.model.Price;
 import com.test.priceapi.domain.port.out.PriceRepository;
-import com.test.priceapi.infraestructure.persistence.service.PricePersistenceService;
+import com.test.priceapi.infrastructure.persistence.service.PricePersistenceService;
 
 @Repository
 public class PriceRepositoryAdapter implements PriceRepository{

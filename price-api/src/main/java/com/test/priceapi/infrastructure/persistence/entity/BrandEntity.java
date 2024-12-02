@@ -1,4 +1,4 @@
-package com.test.priceapi.infraestructure.persistence.entity;
+package com.test.priceapi.infrastructure.persistence.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

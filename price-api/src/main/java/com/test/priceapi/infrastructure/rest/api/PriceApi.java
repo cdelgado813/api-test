@@ -1,4 +1,4 @@
-package com.test.priceapi.infraestructure.rest.api;
+package com.test.priceapi.infrastructure.rest.api;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
