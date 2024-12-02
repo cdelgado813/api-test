@@ -82,12 +82,16 @@ de ahí que tengamos un servicio en la capa de dominio que ordena una lista de P
 
 ## Pruebas
 
-Ejecutar las pruebas con:
+Se pueden lanzar los test mediante el comando:
 
 1. Lanzar los test:
    ```bash
    mvn clean test
    ```
+También se pueden lanzar los test mediante una GitHub action que hay configurada bajo el nombre run-test. 
+Dicha GHAction se ejecuta automáticamente en los merge request a la rama main
+
+
 ---
 
 ## Endpoints
