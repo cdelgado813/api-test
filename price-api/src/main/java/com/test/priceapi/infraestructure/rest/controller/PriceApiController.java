@@ -1,7 +1,6 @@
 package com.test.priceapi.infraestructure.rest.controller;
 
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,22 +23,11 @@ public class PriceApiController implements PriceApi {
 
     @Override
     public ResponseEntity<PriceDto> getActivePrice(LocalDateTime priceStartDate, Integer productId, Integer brandId) {
-        try {
 
-            var priceDto = priceService.findActivePrice(priceStartDate, productId, brandId);
+        var priceDto = priceService.findActivePrice(priceStartDate, productId, brandId);
 
-            if (priceDto == null) {
-                return ResponseEntity.notFound().build();
-            }
+        return priceDto == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(priceDto);
 
-            return ResponseEntity.ok(priceDto);
-
-        } catch (Exception e) {
-
-            log.error("Error al obtener el precio", e);
-
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
     }
 
 

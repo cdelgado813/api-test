@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import com.test.priceapi.infraestructure.exception.InfrastructureException;
 import com.test.priceapi.infraestructure.persistence.entity.BrandEntity;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +26,16 @@ public class PricePersistenceService {
      * @param priceStartDate La fecha para la cual se buscan los precios activos.
      * @param productId      El identificador del producto.
      * @param brandId        El identificador de la marca.
-     * @return Una lista de precios activos o una lista vacía si ocurre un error.
+     * @return Una lista de precios activos o una lista vacía sí ocurre un error.
      */
     public Optional<List<PriceEntity>> findActivePrices(LocalDateTime priceStartDate, Integer productId, Integer brandId) {
-        return priceJpaRepository.findActivePrices(
-                Timestamp.valueOf(priceStartDate), productId, new BrandEntity(brandId));
+        try {
+            return priceJpaRepository.findActivePrices(
+                    Timestamp.valueOf(priceStartDate), productId, new BrandEntity(brandId));
+        } catch (Exception ex) {
+            throw new InfrastructureException("Error accessing database");
+        }
+
 
     }
 

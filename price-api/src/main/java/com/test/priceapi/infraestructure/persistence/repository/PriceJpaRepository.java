@@ -15,7 +15,7 @@ public interface PriceJpaRepository extends JpaRepository<PriceEntity, PriceEnti
 
 
     /**
-     * Se podría utilizar esta query para simplificar mucho mas el proyecto
+     * Se podría utilizar esta query para simplificar mucho más el proyecto
      * @Query("SELECT p FROM PriceEntity p WHERE :priceStartDate BETWEEN p.priceStartDate AND p.priceEndDate AND p.priceEntityId.productId = :productId AND p.priceEntityId.brandEntity = :brandId ORDER BY p.priority DESC")
      **/
     @Query("SELECT p FROM PriceEntity p WHERE :priceStartDate BETWEEN p.priceStartDate AND p.priceEndDate AND p.priceEntityId.productId = :productId AND p.priceEntityId.brandEntity = :brandId")
