@@ -1,14 +1,13 @@
-package com.test.priceapi.infraestructure.rest.controller;
+package com.test.priceapi.infrastructure.rest.controller;
 
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.priceapi.application.port.PriceService;
 import com.test.priceapi.application.dto.PriceDto;
 
-import com.test.priceapi.infraestructure.rest.api.PriceApi;
+import com.test.priceapi.infrastructure.rest.api.PriceApi;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,22 +23,11 @@ public class PriceApiController implements PriceApi {
 
     @Override
     public ResponseEntity<PriceDto> getActivePrice(LocalDateTime priceStartDate, Integer productId, Integer brandId) {
-        try {
 
-            var priceDto = priceService.findActivePrice(priceStartDate, productId, brandId);
+        var priceDto = priceService.findActivePrice(priceStartDate, productId, brandId);
 
-            if (priceDto == null) {
-                return ResponseEntity.notFound().build();
-            }
+        return priceDto == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(priceDto);
 
-            return ResponseEntity.ok(priceDto);
-
-        } catch (Exception e) {
-
-            log.error("Error al obtener el precio", e);
-
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
     }
 
 

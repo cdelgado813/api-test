@@ -1,10 +1,8 @@
-package com.test.priceapi.infraestructure.rest.api;
+package com.test.priceapi.infrastructure.rest.api;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.test.priceapi.application.dto.PriceDto;
 
@@ -32,11 +30,11 @@ public interface PriceApi {
     @GetMapping(value = "/activePrice", produces = {"application/json"})
     ResponseEntity<PriceDto> getActivePrice(
             @Parameter(in = ParameterIn.QUERY, description = "Fecha de inicio de la búsqueda de precios (formato: yyyy-MM-dd' 'HH:mm:ss)", schema = @Schema(type = "string", format = "date-time"))
-            @RequestParam(value = "priceStartDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd' 'HH:mm:ss") LocalDateTime priceStartDate,
+            @RequestParam(value = "priceStartDate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd' 'HH:mm:ss") LocalDateTime priceStartDate,
 
             @Parameter(in = ParameterIn.QUERY, description = "ID del producto para filtrar los precios", schema = @Schema(type = "integer"))
-            @RequestParam(value = "productId", required = false) Integer productId,
+            @RequestParam(value = "productId", required = true) Integer productId,
 
             @Parameter(in = ParameterIn.QUERY, description = "ID de la marca para filtrar los precios", schema = @Schema(type = "integer"))
-            @RequestParam(value = "brandId", required = false) Integer brandId);
+            @RequestParam(value = "brandId", required = true) Integer brandId);
 }
