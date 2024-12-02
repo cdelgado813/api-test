@@ -26,10 +26,13 @@ src/
 │       │   ├── model/          # Modelo del objeto de negocio Price
 │       │   ├── port/           # Interfaces de entrada y salida del dominio
 │       │   ├── service/        # Servicio de dominio que contiene la lógica de negocio
-│       ├── infraestructure/    # Capa de infraestructura (adaptadores, controladores, repositorios, configuración)
+│       │   ├── exception/      # Custom Exception for domain
+│       ├── infrastructure/     # Capa de infraestructura (adaptadores, controladores, repositorios, configuración)
 │           ├── adapter/        # Adaptador para implementar el puerto out del dominio
 │           ├── persistence/    # Servicios y entidades relacionados con la base de datos
 │           ├── rest/           # API REST (controladores y mapeadores)
+│               ├── exception/  # Exception Handlers
+│           ├── exception/      # Custom Exception for infrastructure
 │           ├── config/         # Configuración (Creación de beans para desacoplar el dominio del framework)
 ├── test/                       # Pruebas unitarias y de integración
 ```
