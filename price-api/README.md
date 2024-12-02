@@ -19,7 +19,13 @@ src/
 ├── main/
 │   ├── java/com/test/priceapi/
 │       ├── application/        # Capa de aplicación (Servicios y DTOs)
+│       │   ├── dto/            # Dto de price
+│       │   ├── port/           # Interfaz para ser consumida desde la capa de infraestructura
+│       │   ├── service/        # Implementación del puerto in de dominio
 │       ├── domain/             # Capa de dominio (modelo, puertos y servicios de con lógica de negocio)
+│       │   ├── model/          # Modelo del objeto de negocio Price
+│       │   ├── port/           # Interfaces de entrada y salida del dominio
+│       │   ├── service/        # Servicio de dominio que contiene la lógica de negocio
 │       ├── infraestructure/    # Capa de infraestructura (adaptadores, controladores, repositorios, configuración)
 │           ├── adapter/        # Adaptador para implementar el puerto out del dominio
 │           ├── persistence/    # Servicios y entidades relacionados con la base de datos
@@ -33,6 +39,55 @@ mucho más la complejidad del proyecto haciendo que la query sql obtenga directa
 se menciona que el campo priority en la guía parece dejar bastante claro que se trata de una regla de negocio, se ha preferido no cargar el cálculo en base de datos y delegarlo en el servidor
 de ahí que tengamos un servicio en la capa de dominio que ordena una lista de Price para retornar el más prioritario pensando en la escalabilidad del mismo.
 
+
+---
+
+## Tecnologías
+
+- **Java 22** [link](https://www.oracle.com/java/technologies/javase/jdk22-archive.html)
+- **Spring Boot 3.4** [link](https://spring.io/projects/spring-boot)
+- **H2 Database** [link](https://www.h2database.com/html/main.html)
+- **Maven** [link](https://maven.apache.org/)
+
+---
+
+
+## Configuración y Ejecución
+
+### Requisitos Previos
+
+- JDK 22 instalado.
+- Maven instalado.
+
+### Pasos para Ejecutar
+
+1. Clonar el repositorio.
+    ```
+    git clone https://github.com/cdelgado813/api-test.git
+    ```
+
+2. Navegar al directorio del proyecto y compilar con:
+   ```bash
+   cd ./price-api | mvn clean install
+   ```
+3. Ejecutar la aplicación:
+   ```bash
+   mvn spring-boot:run
+   ```
+4. Acceder a la api:
+
+   [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html#/Prices/getActivePrice)
+
+---
+
+## Pruebas
+
+Ejecutar las pruebas con:
+
+1. Lanzar los test:
+   ```bash
+   mvn clean test
+   ```
 ---
 
 ## Endpoints
@@ -61,48 +116,10 @@ de ahí que tengamos un servicio en la capa de dominio que ordena una lista de P
     - `404 Not Found`: No se encontró un precio activo.
     - `500 Internal Server Error`: Error interno del servidor.
 
----
+## Desarrollador
 
-## Tecnologías
+Este proyecto fue desarrollado por Carlos Delgado.
 
-- **Java 22**
-- **Spring Boot 3.3**
-- **H2 Database**
-- **Maven**
-
----
-
-## Configuración y Ejecución
-
-### Requisitos Previos
-
-- JDK 22 instalado.
-- Maven instalado.
-
-### Pasos para Ejecutar
-
-1. Clonar el repositorio.
-    ```
-    git clone https://github.com/cdelgado813/api-test.git
-    ```
-
-2. Navegar al directorio del proyecto y compilar con:
-   ```bash
-   cd ./price-api | mvn clean install
-   ```
-3. Ejecutar la aplicación:
-   ```bash
-   mvn spring-boot:run
-   ```
-4. La API estará disponible en: [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html#/Prices/getActivePrice)
-
----
-
-## Pruebas
-
-Ejecutar las pruebas con:
-
-1. Lanzar los test:
-   ```bash
-   mvn clean test
-   ```
+- **Correo electrónico**: cdelgado813@gmail.com
+- **GitHub**: [https://github.com/tu-usuario](https://github.com/tu-usuario)
+- **LinkedIn**: [https://www.linkedin.com/in/carlos-delgado-garrido/](https://www.linkedin.com/in/carlos-delgado-garrido/)

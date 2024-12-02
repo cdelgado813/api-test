@@ -2,8 +2,6 @@ package com.test.priceapi.domain.model;
 
 import java.time.LocalDateTime;
 
-import lombok.Builder;
-
 public class Price {
 
     private Integer productId;
