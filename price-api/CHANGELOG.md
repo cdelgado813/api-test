@@ -17,3 +17,7 @@
 ## [1.0.2] - 2024-12-02
 ### Added
 - Refactor on project packages and readme 
+
+## [1.0.3] - 2024-12-02
+### Added
+- Changelog has been updated
